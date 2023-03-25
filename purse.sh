@@ -23,7 +23,7 @@ timeout=10
 fail () {
   # Print an error message and exit.
 
-  tput setaf 1 1 1 ; printf "\nError: %s\n" "${1}" ; tput sgr0
+  tput setaf 1 ; printf "\nError: %s\n" "${1}" ; tput sgr0
   exit 1
 }
 
@@ -305,4 +305,6 @@ else read_pass "$@" ; fi
 
 chmod -R 0400 ${safeix} ${safedir} 2>/dev/null
 
-tput setaf 2 2 2 ; printf "\nDone\n" ; tput sgr0
+# tput issue introduced in
+# https://github.com/drduh/Purse/commit/0efd10110b9244fc1c6c6bc3cf551834af9078b0
+tput setaf 2 ; printf "\nDone\n" ; tput sgr0
