@@ -168,10 +168,14 @@ backup () {
   printf "\nArchived %s \n" "${backuptar}"
 }
 
+_copy () {
+  xclip -i -selection clipboard
+}
+
 clip () {
   # Use clipboard and clear after timeout.
 
-  ${copy} < "${1}"
+  _copy < "${1}"
 
   printf "\n"
   shift
@@ -180,7 +184,7 @@ clip () {
     sleep 1
   done
 
-  printf "" | ${copy}
+  printf "" | _copy
 }
 
 
